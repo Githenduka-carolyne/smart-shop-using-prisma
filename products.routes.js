@@ -55,31 +55,31 @@ router.get("/:id", async(req,res)=>{
 
 })
 
-// router.delete("/:id", async(req,res)=>{
-//   try{
-// const id=req.params.id;
-//     const products=await prisma.product.delete({
-//     where:{id},
+router.delete("/:id", async(req,res)=>{
+  try{
+const id=req.params.id;
+    const products=await prisma.product.delete({
+    where:{id},
        
-//         select:{
-//           id:true,
-//           productTitle:true,
-//             productDescription:true,
-//             productCost:true,
-//             onOffer:true  
-//         }
+        select:{
+          id:true,
+          productTitle:true,
+            productDescription:true,
+            productCost:true,
+            onOffer:true  
+        }
       
-//     })
-//     if(!products){
-//         res.status(404).json({message:"No  product with that id found"})
-//       }else{
-//       res.status(200).json({message:"Product deleted successfully" ,products})}
-//   }
-//   catch(error){
-//        res.status(500).json({message:"error has occured"})
-//   }
+    })
+    if(!products){
+        res.status(404).json({message:"No  product with that id found"})
+      }else{
+      res.status(200).json({message:"Product deleted successfully" ,products})}
+  }
+  catch(error){
+       res.status(500).json({message:"error has occured"})
+  }
 
-// })
+})
 
 // router.post("/", async(req,res)=>{
 //            const{productTitle,
