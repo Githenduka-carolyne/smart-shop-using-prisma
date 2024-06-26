@@ -116,49 +116,49 @@ router.post("/", async(req,res)=>{
 
 })
 
-// router.patch("/:id", async(req,res)=>{
-//    const id = req.params.id;
-//     const{productTitle,
-//             productDescription,
-//             productCost,
-//             onOffer}=req.body;
-//          try{
-//             let updateproducts;
-//             if(productTitle){(
-//                updateproducts = await prisma.product.update({
-//                 where:{id},
-//                 data:{productTitle:productTitle}
-//                })
-//               )
-//             }
-//              if(productDescription){(
-//                updateproducts =await prisma.product.update({
-//                 where:{id},
-//                 data:{productDescription:productDescription}
-//               })
-//             )
-//             }
+router.patch("/:id", async(req,res)=>{
+   const id = req.params.id;
+    const{productTitle,
+            productDescription,
+            productCost,
+            onOffer}=req.body;
+         try{
+            let updateproducts;
+            if(productTitle){(
+               updateproducts = await prisma.product.update({
+                where:{id},
+                data:{productTitle:productTitle}
+               })
+              )
+            }
+             if(productDescription){(
+               updateproducts =await prisma.product.update({
+                where:{id},
+                data:{productDescription:productDescription}
+              })
+            )
+            }
           
-//              if(productCost){(
-//                updateproducts = await prisma.product.update({
-//                 where:{id},
-//                 data:{productCost:productCost}
-//               })
-//             )
-//             }
-//              if(onOffer){(
-//                updateproducts =await prisma.product.update({
-//                 where:{id},
-//                 data:{onOffer:onOffer}
-//               })
-//             )
-//             }
-//           res.status(200).json({message:"Product updated successfully" ,updateproducts})
-//           }
-//           catch(err){
-//             res.status(500).json({message:"error has occured"})
-//           }
+             if(productCost){(
+               updateproducts = await prisma.product.update({
+                where:{id},
+                data:{productCost:productCost}
+              })
+            )
+            }
+             if(onOffer){(
+               updateproducts =await prisma.product.update({
+                where:{id},
+                data:{onOffer:onOffer}
+              })
+            )
+            }
+          res.status(200).json({message:"Product updated successfully" ,updateproducts})
+          }
+          catch(err){
+            res.status(500).json({message:"error has occured"})
+          }
 
-// })
+})
 
 export default router;
